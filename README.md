@@ -7,11 +7,12 @@ this to a convenient schematic, data structure for manipulating.
 In short (as you can probably see), the goal is to arrange the tumblers so that
 all four simple arithmetic equations are true simultaneously.  The tumblers can
 be pulled apart and re-assembled, and rotated, into many permutations.  There
-are some restrictions:
+are some restrictions and simplifying constraints:
 
  - it makes no sense to have two operators adjacent
  - by elimination, this means all digits must be singletons (no multi-digit numbers)
- - the equal sign probably shouldn't count, except as a separator (since it's the same on all four sides)
+ - the equal sign should not count as a real tumbler, otherwise it will result in duplicate solutions (x4), which are only different by an offset
+ - the first tumbler in any permutation should be held stationary while the others are rotated, to avoid further duplicate solutions (again, x4)
 
 There's probably some group-theoretic arugments that can be made to really
 simplify the solution space, but I'm only a group theory novice.
