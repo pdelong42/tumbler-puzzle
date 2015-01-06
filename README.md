@@ -14,6 +14,14 @@ are some restrictions and simplifying constraints:
  - the equal sign should not count as a real tumbler, otherwise it will result in duplicate solutions (x4), which are only different by an offset
  - the first tumbler in any permutation should be held stationary while the others are rotated, to avoid further duplicate solutions (again, x4)
 
+To enumerate the solutions:
+
+ - there are 20 (4!) permutations of the operator tumblers
+ - there are 120 (5!) permutations of the digit tumblers
+ - there are 2400 (20*120) meaningful orderings of all tumblers
+ - there are 16384 (4^7) possible arrangements of each tumbler ordering (not 4^8, since we always hold one tumbler fixed)
+ - there are 39321600 (2400*16384) total solutions to try
+
 There's probably some group-theoretic arugments that can be made to really
 simplify the solution space, but I'm only a group theory novice.
 
