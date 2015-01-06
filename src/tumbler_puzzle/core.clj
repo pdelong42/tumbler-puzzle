@@ -1,5 +1,7 @@
 (ns tumbler-puzzle.core
-  (:require [clojure.math.combinatorics :refer [permutations]])
+  (  :require [clojure.math.combinatorics :refer
+     [  permutations
+        cartesian-product  ]  ]  )
   (:gen-class))
 
 ; Here's a first pass at the a data structure.  This is inadquate in many ways,
