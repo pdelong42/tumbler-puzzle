@@ -1,7 +1,9 @@
 (ns tumbler-puzzle.core
-  (  :require [clojure.math.combinatorics :refer
-     [  permutations
-        cartesian-product  ]  ]  )
+  (  :require
+     [clojure.pprint :refer [pprint]]
+     [clojure.math.combinatorics :refer
+        [  permutations
+           cartesian-product  ]  ]  )
   (:gen-class))
 
 ; Here's a first pass at the a data structure.  This is inadquate in many ways,
@@ -25,8 +27,13 @@
 (def operators [:orange :cyan :mint :white])
 
 (defn -main
-  "I don't do a whole lot ... yet."
-  [& args]
-  ;; work around dangerous default behaviour in Clojure
-  (alter-var-root #'*read-eval* (constantly false))
-  (println "Hello, World!")  )
+   [& args]
+   ;; work around dangerous default behaviour in Clojure
+   (alter-var-root #'*read-eval* (constantly false))
+   (pprint
+      (cartesian-product
+         (permutations digits)
+         (permutations operators)  )  )  )
+
+; So far so good.  Now I need to interleave these 2880 results, and
+; use them as an vector index into the 16384 tumbler orderings.
