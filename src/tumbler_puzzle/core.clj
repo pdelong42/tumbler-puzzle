@@ -1,4 +1,6 @@
-(ns tumbler-puzzle.core (:gen-class))
+(ns tumbler-puzzle.core
+  (:require [clojure.math.combinatorics :refer [permutations]])
+  (:gen-class))
 
 ; Here's a first pass at the a data structure.  This is inadquate in many ways,
 ; but I just wanted to get the basic structure transcribed for starters, and ;
