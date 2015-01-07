@@ -27,14 +27,20 @@
 
 (def operators [:orange :cyan :mint :white])
 
+(defn interleave-off-by-one
+   [[x y]]
+   (cons (first x) (interleave y (rest x)))  )
+
 (defn -main
    [& args]
    ;; work around dangerous default behaviour in Clojure
    (alter-var-root #'*read-eval* (constantly false))
    (pprint
-      (cartesian-product
-         (permutations digits)
-         (permutations operators)  )  )  )
+      (map
+         interleave-off-by-one
+         (cartesian-product
+            (permutations digits)
+            (permutations operators)  )  )  )  )
 
 ; So far so good.  Now I need to interleave these 2880 results, and
 ; use them as an vector index into the 16384 tumbler orderings.  Or
