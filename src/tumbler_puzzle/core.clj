@@ -6,10 +6,11 @@
            cartesian-product  ]  ]  )
   (:gen-class))
 
-; Here's a first pass at the a data structure.  This is inadquate in many ways,
-; but I just wanted to get the basic structure transcribed for starters, and ;
-; make it more robust as this evolves.  Update: I made a second pass - it's
-; still woefully inadequate, but it's slightly more useful.
+; Here's a first pass at the a data structure.  This is inadquate in
+; many ways, but I just wanted to get the basic structure transcribed
+; for starters, and make it more robust as this evolves.  Update: I
+; made a second pass - it's still woefully inadequate, but it's
+; slightly more useful.
 
 (def tumblers
    {  :red    '(1 3 4 2)
