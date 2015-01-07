@@ -28,10 +28,14 @@
 (def operators [:orange :cyan :mint :white])
 
 (defn interleave-off-by-one
-   [[x y]]
+   [[x y z]]
    (cons
       (first x)
       (interleave y (rest x))  )  )
+
+; This is an intermediate state - for one thing, I don't use 'z'
+; above, yet.  But I checked, and the count of results (47185920) is
+; exactly what I expected it to be.
 
 (defn -main
    [& args]
@@ -42,7 +46,8 @@
          interleave-off-by-one
          (cartesian-product
             (permutations digits)
-            (permutations operators)  )  )  )  )
+            (permutations operators)
+            (apply cartesian-product (take 7 (repeat [0 1 2 3])))  )  )  )  )
 
 ; So far so good.  Now I need to interleave these 2880 results, and
 ; use them as an vector index into the 16384 tumbler orderings.  Or
