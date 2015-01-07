@@ -29,7 +29,9 @@
 
 (defn interleave-off-by-one
    [[x y]]
-   (cons (first x) (interleave y (rest x)))  )
+   (cons
+      (first x)
+      (interleave y (rest x))  )  )
 
 (defn -main
    [& args]
