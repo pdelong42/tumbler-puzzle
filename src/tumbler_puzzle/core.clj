@@ -1,9 +1,7 @@
 (ns tumbler-puzzle.core
   (  :require
      [clojure.pprint :refer [pprint]]
-     [clojure.math.combinatorics :refer
-        [  permutations
-           cartesian-product  ]  ]  )
+     [clojure.math.combinatorics :refer [permutations cartesian-product]]  )
   (:gen-class))
 
 ; Here's a first pass at the a data structure.  This is inadquate in
@@ -51,6 +49,4 @@
 ; use them as an vector index into the 16384 tumbler orderings.  Or
 ; rather, use each of the 16384 tumbler orderings as a vector index
 ; into the tumbler permutations.  I haven't decided which way to think
-; of it. See also the following snippet of code:
-;
-; (count (apply cartesian-product (take 7 (repeat [0 1 2 3]))))
+; of it.
