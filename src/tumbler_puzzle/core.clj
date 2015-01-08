@@ -10,20 +10,18 @@
 ; made a second pass - it's still woefully inadequate, but it's
 ; slightly more useful.
 
-(def tumblers
+(def digits
    {  :red    '(1 3 4 2)
-      :orange '(+ * - /)
       :green  '(1 3 2 4)
-      :cyan   '(+ / * -)
       :mango  '(1 4 3 2)
-      :mint   '(+ - / *)
       :blue   '(1 2 4 3)
-      :white  '(= = = =)
       :yellow '(4 2 3 1)  }  )
 
-(def digits [:red :green :mango :blue :yellow])
-
-(def operators [:orange :cyan :mint :white])
+(def operators
+   {  :orange '(+ * - /)
+      :cyan   '(+ / * -)
+      :mint   '(+ - / *)
+      :white  '(= = = =)  }  )
 
 (defn -main
    [& args]
@@ -35,8 +33,8 @@
             [[x y z]]
             (println (interleave (cons z y) x))  )
          (cartesian-product
-            (permutations digits)
-            (permutations operators)
+            (permutations (keys    digits))
+            (permutations (keys operators))
             (apply cartesian-product (take 7 (repeat [0 1 2 3])))  )  )  )  )
 
 ; So far so good.  Now I need to interleave these 2880 results, and
