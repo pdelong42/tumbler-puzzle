@@ -29,20 +29,17 @@
 
 (defn interleave-off-by-one
    [[x y z]]
-   (cons z
-      (cons
-         (first x)
-         (interleave y (rest x))  )  )  )
-
-; This is an intermediate state - for one thing, I don't use 'z'
-; above, yet.  But I checked, and the count of results (47185920) is
-; exactly what I expected it to be.
+   (println
+      (cons z
+         (cons
+            (first x)
+            (interleave y (rest x))  )  )  )  )
 
 (defn -main
    [& args]
    ;; work around dangerous default behaviour in Clojure
    (alter-var-root #'*read-eval* (constantly false))
-   (pprint
+   (dorun
       (map
          interleave-off-by-one
          (cartesian-product
