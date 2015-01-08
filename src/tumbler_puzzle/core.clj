@@ -25,21 +25,15 @@
 
 (def operators [:orange :cyan :mint :white])
 
-(defn interleave-off-by-one
-   [[x y z]]
-   (println
-      (cons z
-         (cons
-            (first x)
-            (interleave y (rest x))  )  )  )  )
-
 (defn -main
    [& args]
    ;; work around dangerous default behaviour in Clojure
    (alter-var-root #'*read-eval* (constantly false))
    (dorun
       (map
-         interleave-off-by-one
+         (fn
+            [[x y z]]
+            (println (interleave (cons z y) x))  )
          (cartesian-product
             (permutations digits)
             (permutations operators)
