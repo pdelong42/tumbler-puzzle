@@ -29,9 +29,10 @@
 
 (defn interleave-off-by-one
    [[x y z]]
-   (cons
-      (first x)
-      (interleave y (rest x))  )  )
+   (cons z
+      (cons
+         (first x)
+         (interleave y (rest x))  )  )  )
 
 ; This is an intermediate state - for one thing, I don't use 'z'
 ; above, yet.  But I checked, and the count of results (47185920) is
