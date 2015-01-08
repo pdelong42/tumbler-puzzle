@@ -36,9 +36,3 @@
             (permutations (keys    digits))
             (permutations (keys operators))
             (apply cartesian-product (take 7 (repeat [0 1 2 3])))  )  )  )  )
-
-; So far so good.  Now I need to interleave these 2880 results, and
-; use them as an vector index into the 16384 tumbler orderings.  Or
-; rather, use each of the 16384 tumbler orderings as a vector index
-; into the tumbler permutations.  I haven't decided which way to think
-; of it.
