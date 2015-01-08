@@ -23,16 +23,18 @@
       :mint   '(+ - / *)
       :white  '(= = = =)  }  )
 
+(defn dothething []
+   (map
+      (fn
+         [[x y z]]
+         (println (interleave (cons z y) x))  )
+      (cartesian-product
+         (permutations (keys    digits))
+         (permutations (keys operators))
+         (apply cartesian-product (take 7 (repeat [0 1 2 3])))  )  )  )
+
 (defn -main
    [& args]
    ;; work around dangerous default behaviour in Clojure
    (alter-var-root #'*read-eval* (constantly false))
-   (dorun
-      (map
-         (fn
-            [[x y z]]
-            (println (interleave (cons z y) x))  )
-         (cartesian-product
-            (permutations (keys    digits))
-            (permutations (keys operators))
-            (apply cartesian-product (take 7 (repeat [0 1 2 3])))  )  )  )  )
+   (dorun (dothething))  )
