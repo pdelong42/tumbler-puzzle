@@ -27,7 +27,7 @@
    (map
       (fn
          [[x y z]]
-         (println (interleave (cons z y) x))  )
+         (interleave (cons z y) x)  )
       (cartesian-product
          (permutations (keys    digits))
          (permutations (keys operators))
@@ -37,4 +37,4 @@
    [& args]
    ;; work around dangerous default behaviour in Clojure
    (alter-var-root #'*read-eval* (constantly false))
-   (dorun (dothething))  )
+   (dorun (map println (dothething)))  )
