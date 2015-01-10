@@ -22,7 +22,7 @@ To enumerate the solutions:
  - there are 16384 (4^7) possible arrangements of each tumbler ordering (not 4^8, since we always hold one tumbler fixed)
  - there are 47185920 (2880*16384) total solutions to try
 
-There's probably some group-theoretic arugments that can be made to really
+There are probably some group-theoretic arguments that can be made to really
 simplify the solution space, but I'm only a group theory novice.
 
 A Lisp, or some other language with lazy evaluation (I plan to use Clojure), is
