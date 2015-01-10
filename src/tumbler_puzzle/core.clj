@@ -26,8 +26,9 @@
          equals-index (.indexOf mobile-tumblers :white)
          left-side  (take equals-index index-tuple)
          right-side (drop equals-index index-tuple)
-         new-index-tuple (concat left-side [0] right-side)  ]
-      [new-index-tuple mobile-tumblers]  )  )
+         new-tumblers (cons fixed-tumbler mobile-tumblers)
+         new-index-tuple (concat [:foo] left-side [:bar] right-side)  ]
+      [new-index-tuple new-tumblers]  )  )
 
 ; The above looks like it works when I pipe the output to head, but I
 ; should test that for when I pipe it to tail as well
@@ -39,6 +40,9 @@
          (permutations (keys    digits))
          (permutations (keys operators))
          (apply cartesian-product (take 7 (repeat [0 1 2 3])))  )  )  )
+
+; ToDo: parameterize the "magic" (i.e., hard-coded) numbers on the
+; previous line
 
 (defn -main
    [& args]
