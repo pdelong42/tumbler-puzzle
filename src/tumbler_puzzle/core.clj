@@ -27,7 +27,7 @@
          left-side  (take equals-index index-tuple)
          right-side (drop equals-index index-tuple)
          new-tumblers (cons fixed-tumbler mobile-tumblers)
-         new-index-tuple (concat [:foo] left-side [:bar] right-side)  ]
+         new-index-tuple (concat [:fixed] left-side [:equals] right-side)  ]
       [new-index-tuple new-tumblers]  )  )
 
 ; The above looks like it works when I pipe the output to head, but I
