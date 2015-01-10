@@ -17,11 +17,13 @@
       :mint   '(+ - / *)
       :white  '(= = = =)  }  )
 
+(defn test-arrangement
+   [[x y z]]
+   (interleave (cons z y) x)  )
+
 (defn try-all-valid-arrangements []
    (map
-      (fn
-         [[x y z]]
-         (interleave (cons z y) x)  )
+      test-arrangement
       (cartesian-product
          (permutations (keys    digits))
          (permutations (keys operators))
