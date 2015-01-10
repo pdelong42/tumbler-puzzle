@@ -4,12 +4,6 @@
      [clojure.math.combinatorics :refer [permutations cartesian-product]]  )
   (:gen-class))
 
-; Here's a first pass at the a data structure.  This is inadquate in
-; many ways, but I just wanted to get the basic structure transcribed
-; for starters, and make it more robust as this evolves.  Update: I
-; made a second pass - it's still woefully inadequate, but it's
-; slightly more useful.
-
 (def digits
    {  :red    '(1 3 4 2)
       :green  '(1 3 2 4)
@@ -23,7 +17,7 @@
       :mint   '(+ - / *)
       :white  '(= = = =)  }  )
 
-(defn dothething []
+(defn try-all-valid-arrangements []
    (map
       (fn
          [[x y z]]
@@ -37,4 +31,5 @@
    [& args]
    ;; work around dangerous default behaviour in Clojure
    (alter-var-root #'*read-eval* (constantly false))
-   (dorun (map println (dothething)))  )
+   (dorun (map println (try-all-valid-arrangements)))  )
+;   (println (count (try-all-valid-arrangements)))  )
