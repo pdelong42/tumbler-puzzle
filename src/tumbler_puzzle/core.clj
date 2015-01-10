@@ -18,17 +18,15 @@
       :white  '(= = = =)  }  )
 
 (defn test-arrangement
-   [[digit-tumblers mobile-operators index-tuple]]
+   [  [digit-tumblers mobile-operators index-tuple]  ]
    (let
       [  fixed-tumbler (first digit-tumblers)
          mobile-digits (rest  digit-tumblers)
          mobile-tumblers (interleave mobile-operators mobile-digits)
          equals-index (.indexOf mobile-tumblers :white)
-         new-index-tuple
-         (concat
-            (take equals-index index-tuple)
-            [99]
-            (drop equals-index index-tuple)  )  ]
+         left-side  (take equals-index index-tuple)
+         right-side (drop equals-index index-tuple)
+         new-index-tuple (concat left-side [0] right-side)  ]
       [new-index-tuple mobile-tumblers]  )  )
 
 ; The above looks like it works when I pipe the output to head, but I
