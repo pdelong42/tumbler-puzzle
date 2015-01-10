@@ -18,8 +18,21 @@
       :white  '(= = = =)  }  )
 
 (defn test-arrangement
-   [[x y z]]
-   (interleave (cons z y) x)  )
+   [[digit-tumblers mobile-operators index-tuple]]
+   (let
+      [  fixed-tumbler (first digit-tumblers)
+         mobile-digits (rest  digit-tumblers)
+         mobile-tumblers (interleave mobile-operators mobile-digits)
+         equals-index (.indexOf mobile-tumblers :white)
+         new-index-tuple
+         (concat
+            (take equals-index index-tuple)
+            [99]
+            (drop equals-index index-tuple)  )  ]
+      [new-index-tuple mobile-tumblers]  )  )
+
+; The above looks like it works when I pipe the output to head, but I
+; should test that for when I pipe it to tail as well
 
 (defn try-all-valid-arrangements []
    (map
