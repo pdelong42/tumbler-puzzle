@@ -17,6 +17,8 @@
       :mint   '(+ - / *)
       :white  '(= = = =)  }  )
 
+(def tumblers (merge digits operators))
+
 (defn test-arrangement
    [  [digit-tumblers mobile-operators index-tuple]  ]
    (let
