@@ -19,6 +19,10 @@
 
 (def tumblers (merge digits operators))
 
+(defn build-equation
+   [tumbler-name index-number]
+   ((vec (tumbler-name tumblers)) index-number)  )
+
 (defn test-arrangement
    [  [digit-tumblers mobile-operators index-tuple]  ]
    (let
@@ -28,12 +32,14 @@
          equals-index (.indexOf mobile-tumblers :white)
          left-side  (take equals-index index-tuple)
          right-side (drop equals-index index-tuple)
-         new-tumblers (cons fixed-tumbler mobile-tumblers)
-         new-index-tuple (concat [:fixed] left-side [:equals] right-side)  ]
-      [new-index-tuple new-tumblers]  )  )
+         new-tumbler-tuple (cons fixed-tumbler mobile-tumblers)
+         new-index-tuple (concat [0] left-side [0] right-side)
+         foo (map build-equation new-tumbler-tuple new-index-tuple)  ]
+      foo  )  )
 
-; The above looks like it works when I pipe the output to head, but I
-; should test that for when I pipe it to tail as well
+; Okay, it looks like I can generate one equation for each tumbler
+; arrangement.  Now I need to implement the logic to generate the
+; other three.
 
 (defn try-all-valid-arrangements []
    (map
