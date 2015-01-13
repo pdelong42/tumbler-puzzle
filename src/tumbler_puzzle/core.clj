@@ -23,7 +23,7 @@
 
 (defn build-equation
    [tumbler-name index-number]
-   ((vec (tumbler-name tumblers)) index-number)  )
+   (nth (tumbler-name tumblers) index-number)  )
 
 (defn build-equations
    [tumbler-tuple index-tuple]
