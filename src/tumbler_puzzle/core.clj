@@ -33,9 +33,8 @@
          left-side  (take equals-index index-tuple)
          right-side (drop equals-index index-tuple)
          new-tumbler-tuple (cons fixed-tumbler mobile-tumblers)
-         new-index-tuple (concat [0] left-side [0] right-side)
-         foo (map build-equation new-tumbler-tuple new-index-tuple)  ]
-      foo  )  )
+         new-index-tuple (concat [0] left-side [0] right-side)  ]
+      (map build-equation new-tumbler-tuple new-index-tuple)  )  )
 
 ; Okay, it looks like I can generate one equation for each tumbler
 ; arrangement.  Now I need to implement the logic to generate the
