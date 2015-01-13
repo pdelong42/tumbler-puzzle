@@ -19,9 +19,12 @@
 
 (def tumblers (merge digits operators))
 
-(defn build-equation
-   [tumbler-name index-number]
-   ((vec (tumbler-name tumblers)) index-number)  )
+(defn build-equations
+   [tumbler-tuple index-tuple]
+   (map
+     #(  (vec (% tumblers)) %2)
+      tumbler-tuple
+      index-tuple)  )
 
 (defn test-arrangement
    [  [digit-tumblers mobile-operators index-tuple]  ]
@@ -34,7 +37,7 @@
          right-side (drop equals-index index-tuple)
          new-tumbler-tuple (cons fixed-tumbler mobile-tumblers)
          new-index-tuple (concat [0] left-side [0] right-side)  ]
-      (map build-equation new-tumbler-tuple new-index-tuple)  )  )
+      (build-equations new-tumbler-tuple new-index-tuple)  )  )
 
 ; Okay, it looks like I can generate one equation for each tumbler
 ; arrangement.  Now I need to implement the logic to generate the
