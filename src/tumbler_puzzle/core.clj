@@ -19,7 +19,10 @@
 
 (def tumblers (merge digits operators))
 
-(defn mod-indices [index-tuple] [index-tuple])
+(def index-range [0 1 2 3])
+
+(defn mod-index-tuple [tuple offset]
+   (map #(mod (+ % offset) 4) tuple)  )
 
 (defn build-equation
    [tumbler-name index-number]
@@ -29,7 +32,7 @@
    [tumbler-tuple index-tuple]
    (map
      #(map build-equation tumbler-tuple %)
-      (mod-indices index-tuple)  )  )
+      (map (partial mod-index-tuple index-tuple) index-range)  )  )
 
 (defn test-arrangement
    [  [digit-tumblers mobile-operators index-tuple]  ]
@@ -54,7 +57,7 @@
       (cartesian-product
          (permutations (keys    digits))
          (permutations (keys operators))
-         (apply cartesian-product (take 7 (repeat [0 1 2 3])))  )  )  )
+         (apply cartesian-product (take 7 (repeat index-range)))  )  )  )
 
 ; ToDo: parameterize the "magic" (i.e., hard-coded) numbers on the
 ; previous line
