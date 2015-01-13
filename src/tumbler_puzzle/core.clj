@@ -19,13 +19,17 @@
 
 (def tumblers (merge digits operators))
 
+(defn mod-indices [index-tuple] [index-tuple])
+
 (defn build-equation
    [tumbler-name index-number]
    ((vec (tumbler-name tumblers)) index-number)  )
 
 (defn build-equations
    [tumbler-tuple index-tuple]
-   (map build-equation tumbler-tuple index-tuple)  )
+   (map
+     #(map build-equation tumbler-tuple %)
+      (mod-indices index-tuple)  )  )
 
 (defn test-arrangement
    [  [digit-tumblers mobile-operators index-tuple]  ]
