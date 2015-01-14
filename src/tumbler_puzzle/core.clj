@@ -19,10 +19,12 @@
 
 (def tumblers (merge digits operators))
 
-(def index-range [0 1 2 3])
+(def idx-max 4)
+
+(def index-range (range idx-max))
 
 (defn mod-index-tuple [tuple offset]
-   (map #(mod (+ % offset) 4) tuple)  )
+   (map #(mod (+ % offset) idx-max) tuple)  )
 
 (defn build-equation
    [tumbler-name index-number]
