@@ -49,10 +49,6 @@
          new-index-tuple (concat [0] left-side [0] right-side)  ]
       (build-equations new-tumbler-tuple new-index-tuple)  )  )
 
-; Okay, it looks like I can generate one equation for each tumbler
-; arrangement.  Now I need to implement the logic to generate the
-; other three.
-
 (defn try-all-valid-arrangements []
    (map
       test-arrangement
