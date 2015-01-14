@@ -46,3 +46,7 @@ What remains open to interpretation is whether to treat the operations
 as floating-point, or to treat them strictly as operating on integers.
 Another is whether to enforce precedence of operators, or apply them
 naively from left to right.
+
+As a first pass, I'm going to assume left-to-right (for each side of
+the equation), and take advantage of Clojure's default representation
+of numbers as rationals.  I could always change it later.
