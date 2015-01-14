@@ -41,3 +41,8 @@ A Lisp, or some other language with lazy evaluation (I plan to use
 Clojure), is probably the best tool for working through all the
 permutations and trying each one in-turn.  It might help reduce memory
 footprint (we'll see).
+
+What remains open to interpretation is whether to treat the operations
+as floating-point, or to treat them strictly as operating on integers.
+Another is whether to enforce precedence of operators, or apply them
+naively from left to right.
