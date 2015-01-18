@@ -24,8 +24,8 @@
 (def index-range (range idx-max))
 
 (defn infix-left-to-right ; short and sweet, but probably not elegant
-   [acc & [op y & col]]
-   (if op (recur (op acc y) col) acc)  )
+   [acc & [op num & rem]]
+   (if op (recur (op acc num) rem) acc)  )
 
 (defn mod-index-tuple [tuple offset]
    (map #(mod (+ % offset) idx-max) tuple)  )
