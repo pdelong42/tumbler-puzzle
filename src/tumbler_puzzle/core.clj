@@ -1,7 +1,8 @@
 (ns tumbler-puzzle.core
   (  :require
      [clojure.pprint :refer [pprint]]
-     [clojure.math.combinatorics :refer [permutations cartesian-product]]  )
+     [clojure.math.combinatorics :refer [permutations cartesian-product]]
+     [joy.unfix.infix :refer [infix]]  )
   (:gen-class))
 
 (def digits
