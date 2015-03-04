@@ -1,7 +1,8 @@
 (ns tumbler-puzzle.core
   (  :require
-     [clojure.pprint :refer [pprint]]
      [clojure.math.combinatorics :refer [permutations cartesian-product]]
+     [clojure.pprint :refer [pprint]]
+     [clojure.tools.trace :refer [dotrace]]
      [joy.unfix.infix :refer [infix]]  )
   (:gen-class))
 
@@ -47,8 +48,9 @@
          left-side  (take equals-index index-tuple)
          right-side (drop equals-index index-tuple)
          new-tumbler-tuple (cons fixed-tumbler mobile-tumblers)
-         new-index-tuple (concat [0] left-side [0] right-side)  ]
-      (build-equations new-tumbler-tuple new-index-tuple)  )  )
+         new-index-tuple (concat [0] left-side [0] right-side)
+         quadruplet (build-equations new-tumbler-tuple new-index-tuple)  ]
+      quadruplet  )  )
 
 (defn try-all-valid-arrangements []
    (map
