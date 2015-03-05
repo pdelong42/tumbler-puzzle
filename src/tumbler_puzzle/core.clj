@@ -50,12 +50,14 @@
          new-tumbler-tuple (cons fixed-tumbler mobile-tumblers)
          new-index-tuple (concat [0] left-side [0] right-side)
          quadruplet (build-equations new-tumbler-tuple new-index-tuple)  ]
-      quadruplet  )  )
-;      (map #(infix %) quadruplet)  )  )
-;      (if (every? #(infix %) quadruplet) quadruplet)  )  )
+      (every? infix-func quadruplet)  )  )
+
+;      quadruplet  )  )
+;      (map infix-func quadruplet)  )  )
+;      (if (every? infix-func quadruplet) quadruplet)  )  )
 
 (defn try-all-valid-arrangements []
-   (map
+   (filter
       test-arrangement
       (cartesian-product
          (permutations (keys    digits))
