@@ -3,7 +3,7 @@
      [clojure.math.combinatorics :refer [permutations cartesian-product]]
      [clojure.pprint :refer [pprint]]
      [clojure.tools.trace :refer [dotrace]]
-     [joy.unfix.infix :refer [infix]]  )
+     [joy.unfix.infix :refer [infix infix-func]]  )
   (:gen-class))
 
 (def digits
@@ -51,6 +51,8 @@
          new-index-tuple (concat [0] left-side [0] right-side)
          quadruplet (build-equations new-tumbler-tuple new-index-tuple)  ]
       quadruplet  )  )
+;      (map #(infix %) quadruplet)  )  )
+;      (if (every? #(infix %) quadruplet) quadruplet)  )  )
 
 (defn try-all-valid-arrangements []
    (map
