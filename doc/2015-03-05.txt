@@ -1,7 +1,8 @@
 Today was my first successful attempt at running this.  I've included the
 output below.  As you can see, I didn't get very far, and that was after nearly
 twelve hours.  This was on my AMD FX(tm)-8350 Eight-Core Processor, with 16 GiB
-of RAM.
+of RAM.  (On the plus side, I have a good handful of test cases to add to my
+unit tests, assuming they check-out.)
 
 I observed resource utilization while it was running.  It consumed about 6 GiB
 of resident RAM (10 GiB virtual), and really only used one core.  So, what I
