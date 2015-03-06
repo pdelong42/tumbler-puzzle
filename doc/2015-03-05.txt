@@ -12,6 +12,9 @@ bit easier to read.  Sure, this is usable, but you have to cross-reference it
 with the tumbler definitions to get something more readily readable.  Also, I
 have yet to verify that these are actually valid solutions.
 
+Another ToDo item: time one or more individual trials, so that I can make a
+rough estimate of how long I expect the whole thing to take, for all trials.
+
 [pdelong@localhost tumbler-puzzle]$ /usr/bin/time ~/Stuff/bin/lein run | tee output.txt
 ((:mango :red :blue :green :yellow) (:mint :white :orange :cyan) (0 3 3 0 1 3 2))
 ((:mango :red :blue :green :yellow) (:mint :cyan :orange :white) (0 3 2 2 3 3 2))
