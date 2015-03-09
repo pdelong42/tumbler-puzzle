@@ -50,22 +50,25 @@
          new-tumbler-tuple (cons fixed-tumbler mobile-tumblers)
          new-index-tuple (concat [0] left-side [0] right-side)
          quadruplet (build-equations new-tumbler-tuple new-index-tuple)  ]
-      (every? infix-func quadruplet)  )  )
+      (if (every? infix-func quadruplet) quadruplet)  )  )
+;      (every? infix-func quadruplet)  )  )
 
-;      quadruplet  )  )
-;      (map infix-func quadruplet)  )  )
-;      (if (every? infix-func quadruplet) quadruplet)  )  )
+; ToDo: write a test routine which takes pre-defined arrangements as
+; input (rather than all of them), so that we can test known true and
+; known false scenarios;
 
 (defn try-all-valid-arrangements []
-   (filter
-      test-arrangement
-      (cartesian-product
-         (permutations (keys    digits))
-         (permutations (keys operators))
-         (apply cartesian-product (take 7 (repeat index-range)))  )  )  )
+   (remove
+      nil?
+      (map
+         test-arrangement
+         (cartesian-product
+            (permutations (keys    digits))
+            (permutations (keys operators))
+            (apply cartesian-product (take 7 (repeat index-range)))  )  )  )  )
 
-; ToDo: parameterize the "magic" (i.e., hard-coded) numbers on the
-; previous line
+; We only need to take seven copies of the index-range, since we
+; require a seven-tuple to construct our index vectors.
 
 (defn -main
    [& args]
