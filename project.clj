@@ -1,4 +1,4 @@
-(defproject tumbler-puzzle "0.1.0-SNAPSHOT"
+(defproject tumbler-puzzle "1.0.1-SNAPSHOT"
    :dependencies
    [  [org.clojars.pdelong/unfix      "3.1"]
       [org.clojure/clojure            "1.5.1"]
