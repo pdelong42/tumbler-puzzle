@@ -1,10 +1,10 @@
 (ns tumbler-puzzle.core
-  (  :require
-     [clojure.math.combinatorics :refer [permutations cartesian-product]]
-     [clojure.pprint :refer [pprint]]
-     [clojure.tools.trace :refer [dotrace]]
-     [joy.unfix.infix :refer [infix infix-func]]  )
-  (:gen-class))
+   (  :require
+      [clojure.math.combinatorics :refer [permutations cartesian-product]]
+      [clojure.pprint :refer [pprint]]
+      [clojure.tools.trace :refer [dotrace]]
+      [joy.unfix.infix :refer [infix infix-func]]  )
+   (:gen-class))
 
 (def digits
    {  :red    '(1 3 4 2)
@@ -57,15 +57,15 @@
 ; input (rather than all of them), so that we can test known true and
 ; known false scenarios;
 
-(defn try-all-valid-arrangements []
-   (remove
-      nil?
-      (map
-         test-arrangement
-         (cartesian-product
-            (permutations (keys    digits))
-            (permutations (keys operators))
-            (apply cartesian-product (take 7 (repeat index-range)))  )  )  )  )
+(defn try-arrangements
+   [arrangements]
+   (remove nil? (map test-arrangement arrangements))  )
+
+(defn produce-all-valid-arrangements []
+   (cartesian-product
+      (permutations (keys    digits))
+      (permutations (keys operators))
+      (apply cartesian-product (take 7 (repeat index-range)))  )  )
 
 ; We only need to take seven copies of the index-range, since we
 ; require a seven-tuple to construct our index vectors.
@@ -74,5 +74,5 @@
    [& args]
    ;; work around dangerous default behaviour in Clojure
    (alter-var-root #'*read-eval* (constantly false))
-   (dorun (map println (try-all-valid-arrangements)))  )
-;   (println (count (try-all-valid-arrangements)))  )
+   (dorun (map println (try-arrangements (produce-all-valid-arrangements))))  )
+;   (println (count (try-arrangements (produce-all-valid-arrangements))))  )
