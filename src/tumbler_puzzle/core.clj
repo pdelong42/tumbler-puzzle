@@ -59,7 +59,7 @@
 
 (defn try-arrangements
    [arrangements]
-   (remove nil? (map test-arrangement arrangements))  )
+   (remove nil? (pmap test-arrangement arrangements))  )
 
 (defn produce-all-valid-arrangements []
    (cartesian-product
