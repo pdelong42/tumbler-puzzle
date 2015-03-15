@@ -1,0 +1,9 @@
+At my current estimate, this will take 150 hours to run to completion
+on my desktop machine.  And it seems to only use a quarter of the
+total CPU capacity while running, since switching to using pmap, which
+is twice what it used before switching to pmap (it also uses all eight
+cores more evenly, spending less time juggling between them).
+
+Conclusions:
+ - I need to step-up the utilization
+ - I need to make this checkpoint itself, so that it can be interrupted and pick-up again where it left off
