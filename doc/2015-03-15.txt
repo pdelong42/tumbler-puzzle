@@ -17,3 +17,15 @@ Later that same day (after temporarily converting all maps to pmaps)...
 7136inputs+8outputs (9major+29216minor)pagefaults 0swaps
 [pdelong@localhost tumbler-puzzle]$ 
 
+After reverting all but one pmap...
+
+tumbler-puzzle.core=> (dorun
+                 #_=>    (map
+                 #_=>      #(time (dorun (map println (try-arrangements (take % (produce-all-valid-arrangements))))))
+                 #_=>      '(100 1000 10000 100000)  )  )
+"Elapsed time: 75.986266 msecs"
+"Elapsed time: 394.571287 msecs"
+"Elapsed time: 5934.739606 msecs"
+"Elapsed time: 471803.211518 msecs"
+nil
+tumbler-puzzle.core=> 
