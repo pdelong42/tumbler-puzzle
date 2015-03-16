@@ -50,8 +50,9 @@
          new-tumbler-tuple (cons fixed-tumbler mobile-tumblers)
          new-index-tuple (concat [0] left-side [0] right-side)
          quadruplet (build-equations new-tumbler-tuple new-index-tuple)  ]
-      (if (every? infix-func quadruplet) quadruplet)  )  )
-;      (every? infix-func quadruplet)  )  )
+      (if
+         (every? infix-func quadruplet)
+         [new-tumbler-tuple quadruplet]  )  )  )
 
 ; ToDo: write a test routine which takes pre-defined arrangements as
 ; input (rather than all of them), so that we can test known true and
