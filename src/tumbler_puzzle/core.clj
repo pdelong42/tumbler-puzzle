@@ -54,10 +54,6 @@
          (every? infix-func quadruplet)
          [new-tumbler-tuple quadruplet]  )  )  )
 
-; ToDo: write a test routine which takes pre-defined arrangements as
-; input (rather than all of them), so that we can test known true and
-; known false scenarios;
-
 (defn try-arrangements
    [arrangements]
    (remove nil? (pmap test-arrangement arrangements))  )
@@ -76,4 +72,3 @@
    ;; work around dangerous default behaviour in Clojure
    (alter-var-root #'*read-eval* (constantly false))
    (dorun (map println (try-arrangements (produce-all-valid-arrangements))))  )
-;   (println (count (try-arrangements (produce-all-valid-arrangements))))  )
