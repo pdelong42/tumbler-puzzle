@@ -4,24 +4,23 @@
       [clojure.pprint      :refer [pprint]]
       [tumbler-puzzle.core :refer :all]  )  )
 
-(deftest valid-arrangement-1
-   (testing "valid arrangement #1"
-      (is
-         (not
-            (nil?
-               (test-arrangement
-                 '(  (:mango :red :blue :green :yellow)
-                     (:mint :white :orange :cyan)
-                     (0 3 3 0 1 3 2)  )  )  )  )  )  )  )
+(def valid-arrangement-1
+  '(  (:mango :red :blue :green :yellow)
+      (:mint :white :orange :cyan)
+      (0 3 3 0 1 3 2)  )  )
 
-(deftest invalid-arrangement-1
+(deftest test-valid-arrangement-1
+   (testing "valid arrangement #1"
+      (is (not (nil? (test-arrangement valid-arrangement-1))))  )  )
+
+(def invalid-arrangement-1
+  '(  (:mango :red :blue :green :yellow)
+      (:mint :white :orange :cyan)
+      (0 3 2 0 1 3 2)  )  )
+
+(deftest test-invalid-arrangement-1
    (testing "invalid arrangement #1"
-      (is
-         (nil?
-            (test-arrangement
-              '(  (:mango :red :blue :green :yellow)
-                  (:mint :white :orange :cyan)
-                  (0 3 2 0 1 3 2)  )  )  )  )  )  )
+      (is (nil? (test-arrangement invalid-arrangement-1)))  )  )
 
 (def twelve-arrangements
   '(  ((:mango :red :blue :green :yellow) (:mint :white :orange :cyan) (0 3 3 0 1 3 2))
