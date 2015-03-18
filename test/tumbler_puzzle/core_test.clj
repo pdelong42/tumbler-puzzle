@@ -1,7 +1,7 @@
 (ns tumbler-puzzle.core-test
    (:require
-      [clojure.test        :refer :all]
       [clojure.pprint      :refer [pprint]]
+      [clojure.test        :refer :all]
       [tumbler-puzzle.core :refer :all]  )  )
 
 (def valid-arrangement-1
